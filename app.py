@@ -6,6 +6,7 @@ def get_db_connection():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     return conn
+
 def get_post(post_id):
     conn = get_db_connection()
     post = conn.execute('SELECT * FROM posts WHERE id = ?',
@@ -22,6 +23,7 @@ def index():
     list_example = ["Alvin", "Simon", "Theodore"]
     return render_template("index4.html", list_example = list_example)
    # return render_template('index3.html')
+
 
 @app.route('/blog')
 def renderer():
